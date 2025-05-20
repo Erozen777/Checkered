@@ -8,7 +8,9 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 / {
@@ -17,16 +19,18 @@
 
         default_layer {
             bindings = <
-&kp ESC  &kp F1     &kp F2     &kp F3    &kp F4     &kp F5    &kp F6        &kp F7      &kp F8    &kp F9     &kp F10   &kp F11    &kp F12    &kp BSPC
-&kp N0   &kp N1     &kp N2     &kp N3    &kp N4     &kp N5    &kp N6        &kp N7      &kp N8    &kp N9     &kp N0    &kp MINUS  &kp EQUAL  &kp N4
-&kp N1   &kp TAB    &kp Q      &kp W     &kp E      &kp R     &kp T         &kp Y       &kp U     &kp I      &kp O     &kp P      &kp LBKT   &kp N5
-&kp N2   &kp CAPS   &kp A      &kp S     &kp D      &kp F     &kp G         &kp H       &kp J     &kp K      &kp L     &kp SEMI   &kp SQT    &kp N6
-&kp N3   &kp LSHFT  &kp Z      &kp X     &kp C      &kp V     &kp B         &kp N       &kp M     &kp COMMA  &kp DOT   &kp FSLH   &kp RSHFT  &kp N7
-                               &kp LEFT  &kp RIGHT  &kp LALT  &kp C_MUTE    &kp C_PLAY  &kp RALT  &kp UP     &kp DOWN
-                    &kp LCTRL  &kp LALT  &kp SPACE  &kp LGUI  &mo 1         &kp N1      &kp BSPC  &kp DEL    &kp RET   &kp RALT
+&kp ESC     &kp NUMBER_1  &kp NUMBER_2   &kp NUMBER_3   &kp NUMBER_4      &kp N5        &kp MINUS           &kp EQUAL          &kp NUMBER_6  &kp N7        &kp N8            &kp N9             &kp N0         &kp END
+&bt BT_NXT  &kp Q         &kp W          &kp F          &kp P             &kp B         &kp C_PREVIOUS      &kp C_VOLUME_UP    &kp J         &kp L         &kp U             &kp Y              &kp SEMICOLON  &kp BACKSLASH
+&mo 3       &kp A         &kp R          &kp S          &kp T             &kp G         &kp C_PLAY_PAUSE    &kp C_VOLUME_DOWN  &kp M         &kp N         &kp E             &kp I              &kp O          &kp APOSTROPHE
+&kp TAB     &kp Z         &kp X          &kp C          &kp D             &kp V         &kp C_NEXT          &kp F23            &kp K         &kp H         &kp COMMA         &kp PERIOD         &kp SLASH      &kp GRAVE
+&kp ENTER   &kp F24       &kp C_AL_WWW   &kp DELETE     &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_SHIFT      &kp RIGHT_SHIFT    &kp LEFT      &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp INSERT     &kp HOME
+                                         &kp C_AL_CALC  &kp LG(L)         &mkp MCLK     &kp STAR            &kp PLUS           &mkp MCLK     &kp DOWN      &kp RIGHT
+                          &kp BACKSPACE  &kp SPACE      &mkp RCLK         &mkp LCLK     &kp LEFT_GUI        &kp RIGHT_GUI      &mkp LCLK     &mkp RCLK     &kp SPACE         &kp BACKSPACE
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>,
+                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
         };
 
         layer_1 {
